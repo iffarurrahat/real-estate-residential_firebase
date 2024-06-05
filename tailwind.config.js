@@ -6,6 +6,9 @@ export default {
       colors: {
         primary: "#bc986b",
       },
+      fontFamily: {
+        roboto: "Roboto, sans-serif",
+      },
     },
   },
   plugins: [],
