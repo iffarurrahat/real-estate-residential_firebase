@@ -1,23 +1,30 @@
 [
   {
     "id": 1,
-    "image": "https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/8I37NtDffNV7AZlDa7uDvvqhovU.jpg",
-    "title": "Avatar: The Way of Water",
-    "subTitle": "Set more than a decade after the events of the first film, learn the story of the Sully family (Jake, Neytiri, and their kids), the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive, and the tragedies they endure.",
-    "interval": 1500
+    "image": "https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/yYrvN5WFeGYjJnRzhY0QXuo4Isw.jpg",
+    "shortTitle": "Luxury Views",
+    "title": "Stunning Luxury Condos",
+    "details": "Experience breathtaking views and luxurious living in our exclusive condo community. Enjoy top-notch amenities and a prime location."
   },
   {
     "id": 2,
-    "image": "https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/bQXAqRx2Fgc46uCVWgoPz5L5Dtr.jpg",
-    "title": "Black Adam",
-    "subTitle": "Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods—and imprisoned just as quickly—Black Adam is freed from his earthly tomb, ready to unleash his unique form of justice on the modern world.",
-    "interval": 500
+    "image": "https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/yYrvN5WFeGYjJnRzhY0QXuo4Isw.jpg",
+    "shortTitle": "Modern Neighborhood",
+    "title": "Vibrant Modern Townhomes",
+    "details": "Discover modern living at its finest in our stylish townhomes. Located in a vibrant neighborhood, our homes offer convenience and comfort."
   },
   {
     "id": 3,
     "image": "https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/yYrvN5WFeGYjJnRzhY0QXuo4Isw.jpg",
-    "title": "Black Panther: Wakanda Forever",
-    "subTitle": "Queen Ramonda, Shuri, M’Baku, Okoye and the Dora Milaje fight to protect their nation from intervening world powers in the wake of King T’Challa’s death. As the Wakandans strive to embrace their next chapter, the heroes must band together with the help of War Dog Nakia and Everett Ross and forge a new path for the kingdom of Wakanda.",
-    "interval": 2500
+    "shortTitle": "Family Suburb",
+    "title": "Serene Family Homes",
+    "details": "Find your perfect family home in our serene suburban community. Enjoy spacious layouts, friendly neighbors, and a tranquil atmosphere."
+  },
+  {
+    "id": 4,
+    "image": "https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/yYrvN5WFeGYjJnRzhY0QXuo4Isw.jpg",
+    "shortTitle": "Cozy Downtown",
+    "title": "Downtown Cozy Apartments",
+    "details": "Live in the heart of the city in our cozy downtown apartments. Experience urban convenience and vibrant city life right outside your door."
   }
 ]
