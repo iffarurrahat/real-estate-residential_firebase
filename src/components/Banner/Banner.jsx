@@ -11,7 +11,7 @@ const Banner = () => {
         const data = await res.json();
         setSlides(data);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     };
     loadSlides();

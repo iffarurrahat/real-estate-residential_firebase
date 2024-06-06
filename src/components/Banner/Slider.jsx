@@ -5,6 +5,7 @@ import {
   HiOutlineArrowNarrowRight,
 } from "react-icons/hi";
 import "./Slider.css";
+import { useEffect } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
@@ -13,7 +14,18 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const Slider = ({ slides }) => {
+  useEffect(() => {
+    // Initializing AOS
+    AOS.init({
+      duration: 1000, // Duration of animation in milliseconds
+      once: true, // Whether animation should happen only once or every time you scroll up/down
+    });
+  }, []);
+
   return (
     <div className="font-roboto">
       <Swiper
@@ -42,7 +54,10 @@ const Slider = ({ slides }) => {
                   <p className="text-sm mb-1 md:mb-4 tracking-[8px] font-medium text-primary">
                     {slide.shortTitle}
                   </p>
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-5">
+                  <h2
+                    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-5"
+                    data-aos="fade-right"
+                  >
                     {slide.title}
                   </h2>
                   <p className="md:w-1/2 lg:w-2/3 leading-6 md:leading-8">
