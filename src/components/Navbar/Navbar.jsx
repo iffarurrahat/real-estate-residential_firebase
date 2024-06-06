@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import logo from "./../../assets/logo.png";
 import { RiMenu2Line, RiCloseLine } from "react-icons/ri";
+import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import Container from "../ui/Container";
 
@@ -9,9 +10,9 @@ const Navbar = () => {
   const [navbarBackgroundColor, setNavbarBackgroundColor] = useState("");
   const location = useLocation();
   useEffect(() => {
-    // Update background color based on the current route
+    // Update background color based on the current route ---
     if (location.pathname === "/") {
-      setNavbarBackgroundColor("text-white");
+      setNavbarBackgroundColor("md:text-white");
     } else {
       setNavbarBackgroundColor("shadow");
     }
@@ -19,7 +20,6 @@ const Navbar = () => {
 
   const routes = [
     { id: 1, path: "/", name: "Home" },
-    { id: 1, path: "/properties", name: "Properties" },
     { id: 2, path: "/login", name: "Login" },
     { id: 3, path: "/register", name: "Register" },
   ];
@@ -30,20 +30,23 @@ const Navbar = () => {
     >
       <Container>
         <div className="flex items-center justify-between py-4">
-          <h1 className="text-3xl font-3xl text-white">NavBar</h1>
+          <img src={logo} alt="logo" />
           <div>
-            <div className="md:hidden text-3xl" onClick={() => setOpen(!open)}>
+            <div
+              className="md:hidden text-3xl text-primary"
+              onClick={() => setOpen(!open)}
+            >
               {open ? <RiCloseLine /> : <RiMenu2Line />}
             </div>
             <ul
               className={`md:flex items-center gap-14 absolute md:static duration-1000 mr-4 md:mr-0 right-0 px-8 md:px-0 py-4 rounded-lg ${
                 open
-                  ? "top-20 shadow-lg bg-white text-black md:shadow-transparent md:bg-transparent md:text-white space-y-3 md:space-y-0"
+                  ? "top-20 shadow-lg md:shadow-transparent bg-white md:bg-transparent space-y-3 md:space-y-0"
                   : "-top-60"
               }`}
             >
               {routes.map((route) => (
-                <li key={route.id}>
+                <li key={route.id} className="">
                   <NavLink
                     to={route.path}
                     className={({ isActive }) =>

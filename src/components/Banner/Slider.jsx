@@ -24,14 +24,14 @@ const Slider = ({ slides }) => {
           prevEl: ".button-prev-slide",
         }}
         pagination={{ clickable: true, dynamicBullets: true }}
-        // autoplay={{ delay: 3000, disableOnInteraction: false }}
-        // effect="fade"
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        effect="fade"
         modules={[Navigation, Pagination, Autoplay, EffectFade]}
       >
         {slides.map((slide, idx) => (
           <SwiperSlide key={idx}>
             <div
-              className="relative bg-cover bg-center flex items-center justify-center h-[400px] sm:h-[550px] md:h-[700px] lg:h-screen"
+              className="relative bg-cover bg-center flex items-center justify-center h-[450px] sm:h-[550px] md:h-[700px] lg:h-screen"
               style={{ backgroundImage: `url(${slide.image})` }}
             >
               {/* Overlay div with pointer-events-none */}
@@ -39,14 +39,16 @@ const Slider = ({ slides }) => {
               {/* Text container with relative positioning and selectable text */}
               <div className="relative z-10 p-4  text-white">
                 <Container>
-                  <p className="text-sm mb-2 md:mb-4 tracking-[8px] font-medium text-primary">
+                  <p className="text-sm mb-1 md:mb-4 tracking-[8px] font-medium text-primary">
                     {slide.shortTitle}
                   </p>
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-5 ">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-5">
                     {slide.title}
                   </h2>
-                  <p className="md:w-1/2 lg:w-2/3 leading-8">{slide.details}</p>
-                  <button className="flex items-center gap-3 border px-3 md:px-6 py-2 md:py-3 rounded mt-3 hover:bg-primary hover:border-primary duration-200 tracking-wider font-medium">
+                  <p className="md:w-1/2 lg:w-2/3 leading-6 md:leading-8">
+                    {slide.details}
+                  </p>
+                  <button className="flex items-center gap-3 border px-3 md:px-6 py-2 md:py-3 rounded mt-3 hover:bg-primary hover:border-primary duration-200 tracking-wider font-medium text-sm md:text-base">
                     See Details
                     <HiOutlineArrowNarrowRight />
                   </button>

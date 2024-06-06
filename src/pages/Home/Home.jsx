@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <div>
       <Banner />
-      <p className="mt-40">Margin top</p>
+      <p className="mt-96">Margin top</p>
     </div>
   );
 };
