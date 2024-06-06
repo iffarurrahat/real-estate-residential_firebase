@@ -58,6 +58,15 @@ const Login = () => {
               />
             </div>
           </form>
+          <div className="flex items-center gap-3 my-5 md:w-2/3">
+            <span className="border w-full block"></span>
+            <p>or</p>
+            <span className="border w-full block"></span>
+          </div>
+          {/* <button className="bg-blue-600 text-white text-sm rounded py-3 w-full cursor-pointer placeholder:text-2xl">
+            Sign in with google
+          </button> */}
+
           <p className="mt-10">
             Need an account ?{" "}
             <Link to="/register" className="text-blue-600 font-semibold">

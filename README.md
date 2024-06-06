@@ -1,8 +1,19 @@
-# React + Vite
+# WebsiteName: Real Estate || Residential
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Website Live URL: [Real Estate || Residential]()
 
-Currently, two official plugins are available:
+Using Package /Tools:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React
+- React-Router
+- React Icons
+- React Hot Toast
+- React PropTypes
+- Swiper Slider
+- React AOS
+- React Animate css
+- Tailwind CSS
+
+Using FontFamily:
+
+- Google font (Roboto, sans-serif)
