@@ -2,7 +2,7 @@
 
 # Website Live URL: [Real Estate || Residential]()
 
-Using Package /Tools:
+## Using Package /Tools:
 
 - React
 - React-Router
@@ -15,11 +15,11 @@ Using Package /Tools:
 - React Helmet-Async
 - Tailwind CSS
 
-Using FontFamily:
+## Using FontFamily:
 
 - Google font (Roboto, sans-serif)
 
-About Real Estate || Residential:
+## About Real Estate || Residential Project:
 
 - Comprehensive Property Listings: Our website offers a wide range of property listings, including residential, commercial, and rental properties, complete with detailed descriptions, high-quality images, and virtual tours.
 
