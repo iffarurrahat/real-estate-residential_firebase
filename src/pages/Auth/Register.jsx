@@ -28,7 +28,7 @@ const Register = () => {
       .catch((error) => {
         const errMessage = error.message;
         if (errMessage) {
-          toast.error("Something is wrong");
+          toast.error("Something is wrong try later");
         }
       });
   };
