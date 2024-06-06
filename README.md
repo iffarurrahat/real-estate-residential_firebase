@@ -12,6 +12,7 @@ Using Package /Tools:
 - Swiper Slider
 - React AOS
 - React Animate css
+- React Helmet-Async
 - Tailwind CSS
 
 Using FontFamily:
