@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Slider from "./Slider";
+import toast from "react-hot-toast";
 
 const Banner = () => {
   const [slides, setSlides] = useState([]);
@@ -11,7 +12,7 @@ const Banner = () => {
         const data = await res.json();
         setSlides(data);
       } catch (error) {
-        console.error(error);
+        toast.error(error);
       }
     };
     loadSlides();

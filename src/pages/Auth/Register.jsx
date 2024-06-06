@@ -1,10 +1,37 @@
 import { Link } from "react-router-dom";
 import registerImg from "./../../assets/register-bg.jpg";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const { createUser } = useContext(AuthContext);
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    const name = form.get("name");
+    const photo = form.get("photo");
+    const email = form.get("email");
+    const password = form.get("password");
+
+    //create user
+    createUser(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        if (loggedUser) {
+          toast.success("Successfully Create Account");
+        }
+      })
+      .catch((error) => {
+        const errMessage = error.message;
+        if (errMessage) {
+          toast.error("Something is wrong");
+        }
+      });
+  };
 
   return (
     <div className="grid md:grid-cols-5 font-roboto">
@@ -17,7 +44,7 @@ const Register = () => {
             welcome to the smart sight system for well deports register as a
             member to experience
           </p>
-          <form>
+          <form onSubmit={handleRegister}>
             <div>
               <label className="mb-1 text-sm">Name</label> <br />
               <input

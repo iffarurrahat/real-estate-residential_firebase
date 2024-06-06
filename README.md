@@ -2,7 +2,7 @@
 
 # Website Live URL: [Real Estate || Residential]()
 
-## Using Package /Tools:
+## Using Package / Tools:
 
 - React
 - React-Router
@@ -14,6 +14,7 @@
 - React Animate css
 - React Helmet-Async
 - Tailwind CSS
+- Firebase
 
 ## Using FontFamily:
 
