@@ -18,7 +18,7 @@
 
 ## Using FontFamily:
 
-- Google font (Roboto, sans-serif)
+- Google font (Roboto, Sans-Serif)
 
 ## About Real Estate || Residential Project:
 
