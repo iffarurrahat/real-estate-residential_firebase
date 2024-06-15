@@ -13,6 +13,7 @@
 - React AOS
 - React Animate css
 - React Helmet-Async
+- React Loader-Spinner
 - Tailwind CSS
 - Firebase
 

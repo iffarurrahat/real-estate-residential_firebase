@@ -4,7 +4,7 @@ import loginImg from "./../../assets/login-bg.jpg";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import useAuth from "../../hooks/useAuth";
 
@@ -13,6 +13,10 @@ const Login = () => {
   const [loginError, setLoginError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+
+  // when user login navigate the path
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -28,6 +32,9 @@ const Login = () => {
         const loggedUser = result.user;
         if (loggedUser) {
           toast.success("Login Successfully");
+
+          // navigate user
+          navigate(location?.state || "/");
         }
       })
       .catch((error) => {

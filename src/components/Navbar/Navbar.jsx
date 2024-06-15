@@ -42,6 +42,7 @@ const Navbar = () => {
   const routes = [
     { id: 1, path: "/", name: "Home" },
     { id: 2, path: "/register", name: "Register" },
+    { id: 4, path: "/blogs", name: "Blogs" },
   ];
 
   // Conditional rendering of login
