@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const Drawer = ({ isOpen, onClose, user, handleSignOut }) => {
   return (
     <div
@@ -36,4 +38,10 @@ const Drawer = ({ isOpen, onClose, user, handleSignOut }) => {
   );
 };
 
+Drawer.propTypes = {
+  user: PropTypes.object,
+  isOpen: PropTypes.bool,
+  onClose: PropTypes.func,
+  handleSignOut: PropTypes.func.isRequired,
+};
 export default Drawer;

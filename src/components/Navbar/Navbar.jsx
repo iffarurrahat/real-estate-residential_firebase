@@ -44,10 +44,8 @@ const Navbar = () => {
     { id: 2, path: "/register", name: "Register" },
   ];
 
-  // Conditional rendering of login/logout
-  if (user) {
-    routes.push({ id: 4, path: "#", name: "Logout", onClick: handleSignOut });
-  } else {
+  // Conditional rendering of login
+  if (!user) {
     routes.push({ id: 3, path: "/login", name: "Login" });
   }
 
