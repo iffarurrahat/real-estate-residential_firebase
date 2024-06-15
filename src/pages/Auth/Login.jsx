@@ -1,15 +1,15 @@
 import { FcGoogle } from "react-icons/fc";
 import { FaGoogle } from "react-icons/fa";
 import loginImg from "./../../assets/login-bg.jpg";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../providers/AuthProvider";
 import toast from "react-hot-toast";
+import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
-  const { signIn, loginWithGoogle } = useContext(AuthContext);
+  const { signIn, loginWithGoogle } = useAuth();
   const [loginError, setLoginError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
@@ -108,7 +108,7 @@ const Login = () => {
               </div>
             </form>
             {loginError && (
-              <p className="text-red-600 mt-2">
+              <p className="text-red-600 mt-2 text-sm">
                 {loginError === "Firebase: Error (auth/invalid-credential)."
                   ? "Check email and password "
                   : loginError}

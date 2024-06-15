@@ -1,14 +1,18 @@
 import logo from "./../../assets/logo.png";
 import { RiMenu2Line, RiCloseLine } from "react-icons/ri";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import Container from "../ui/Container";
-import { AuthContext } from "../../providers/AuthProvider";
 import toast from "react-hot-toast";
+import useAuth from "../../hooks/useAuth";
+import Drawer from "./Drawer";
 
 const Navbar = () => {
-  const { logOut, user } = useContext(AuthContext);
+  const { logOut, user } = useAuth();
   const [open, setOpen] = useState(false);
+
+  // New state for drawer
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   const [navbarBackgroundColor, setNavbarBackgroundColor] = useState("");
   const location = useLocation();
@@ -26,6 +30,7 @@ const Navbar = () => {
     logOut()
       .then(() => {
         toast.success("Logout Successful");
+        setDrawerOpen(false); // Close drawer on logout
       })
       .catch((error) => {
         if (error.message) {
@@ -82,10 +87,28 @@ const Navbar = () => {
                   </NavLink>
                 </li>
               ))}
+
+              {user && (
+                <div className="">
+                  <img
+                    src={user?.photoURL}
+                    className="border-2 border-primary cursor-pointer w-10 h-10 rounded-full p-[2px]"
+                    onClick={() => setDrawerOpen(true)} // Set drawerOpen to true on click
+                  />
+                </div>
+              )}
             </ul>
           </div>
         </div>
       </Container>
+
+      {/* Add Drawer component */}
+      <Drawer
+        isOpen={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+        user={user}
+        handleSignOut={handleSignOut} // Pass handleSignOut to Drawer
+      />
     </div>
   );
 };

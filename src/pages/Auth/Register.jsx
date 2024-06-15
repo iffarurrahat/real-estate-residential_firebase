@@ -1,15 +1,15 @@
 import registerImg from "./../../assets/register-bg.jpg";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../providers/AuthProvider";
 import { Helmet } from "react-helmet-async";
 import toast from "react-hot-toast";
+import useAuth from "../../hooks/useAuth";
 
 const Register = () => {
   const [registerError, setRegisterError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const { createUser, updatedUserProfile } = useContext(AuthContext);
+  const { createUser, updatedUserProfile } = useAuth();
 
   const handleRegister = (e) => {
     e.preventDefault();
