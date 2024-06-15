@@ -1,3 +1,5 @@
+import { FcGoogle } from "react-icons/fc";
+import { FaGoogle } from "react-icons/fa";
 import loginImg from "./../../assets/login-bg.jpg";
 import { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
@@ -7,14 +9,20 @@ import { AuthContext } from "../../providers/AuthProvider";
 import toast from "react-hot-toast";
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, loginWithGoogle } = useContext(AuthContext);
+  const [loginError, setLoginError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleLogin = (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     const email = form.get("email");
     const password = form.get("password");
+
+    //reset error
+    setLoginError("");
+
     signIn(email, password)
       .then((result) => {
         const loggedUser = result.user;
@@ -23,7 +31,21 @@ const Login = () => {
         }
       })
       .catch((error) => {
-        console.log(error);
+        setLoginError(error.message);
+      });
+  };
+
+  // signIn with google
+  const handleLoginWithGoogle = () => {
+    loginWithGoogle()
+      .then((result) => {
+        const loggedUser = result.user;
+        if (loggedUser) {
+          toast.success("Login Successfully");
+        }
+      })
+      .catch((error) => {
+        setLoginError(error.message);
       });
   };
 
@@ -85,15 +107,31 @@ const Login = () => {
                 />
               </div>
             </form>
+            {loginError && (
+              <p className="text-red-600 mt-2">
+                {loginError === "Firebase: Error (auth/invalid-credential)."
+                  ? "Check email and password "
+                  : loginError}
+              </p>
+            )}
             <div className="flex items-center gap-3 my-5 md:w-2/3">
               <span className="border w-full block"></span>
               <p>or</p>
               <span className="border w-full block"></span>
             </div>
-            {/* <button className="bg-blue-600 text-white text-sm rounded py-3 w-full cursor-pointer placeholder:text-2xl">
-            Sign in with google
-          </button> */}
-
+            <button
+              className="border py-2 rounded flex justify-center items-center gap-3 md:w-2/3 hover:bg-blue-600 hover:text-white transition-colors duration-300"
+              onMouseEnter={() => setIsHovered(true)} // Event handler for hover
+              onMouseLeave={() => setIsHovered(false)} // Event handler for hover
+              onClick={handleLoginWithGoogle}
+            >
+              {isHovered ? (
+                <FaGoogle className="text-xl" />
+              ) : (
+                <FcGoogle className="text-xl" />
+              )}
+              Continue with Google
+            </button>
             <p className="mt-10">
               Need an account ?{" "}
               <Link to="/register" className="text-blue-600 font-semibold">
@@ -108,15 +146,3 @@ const Login = () => {
 };
 
 export default Login;
-
-/*
-
-<h2 className="text-2xl sm:text-3xl md:text-4xl mb-2 font-bold">
-            Welcome Back
-          </h2>
-          <p className="w-11/12 text-gray-800 mb-6">
-            Welcome back to Smart Sight System. Log in to continue your
-            personalized experience and services.
-          </p>
-
-*/
