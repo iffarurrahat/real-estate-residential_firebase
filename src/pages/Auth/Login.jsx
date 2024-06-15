@@ -1,11 +1,31 @@
 import loginImg from "./../../assets/login-bg.jpg";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
+import toast from "react-hot-toast";
 
 const Login = () => {
+  const { signIn } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    const email = form.get("email");
+    const password = form.get("password");
+    signIn(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        if (loggedUser) {
+          toast.success("Login Successfully");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <>
@@ -27,7 +47,7 @@ const Login = () => {
               Welcome back to Smart Sight System. Log in to continue your
               personalized experience and services.
             </p>
-            <form>
+            <form onSubmit={handleLogin}>
               <div>
                 <label className="mb-1 text-sm">Email</label> <br />
                 <input

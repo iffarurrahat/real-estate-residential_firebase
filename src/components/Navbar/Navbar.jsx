@@ -1,10 +1,13 @@
 import logo from "./../../assets/logo.png";
 import { RiMenu2Line, RiCloseLine } from "react-icons/ri";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import Container from "../ui/Container";
+import { AuthContext } from "../../providers/AuthProvider";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
+  const { logOut, user } = useContext(AuthContext);
   const [open, setOpen] = useState(false);
 
   const [navbarBackgroundColor, setNavbarBackgroundColor] = useState("");
@@ -18,11 +21,30 @@ const Navbar = () => {
     }
   }, [location.pathname]);
 
+  // logout
+  const handleSignOut = () => {
+    logOut()
+      .then(() => {
+        toast.success("Logout Successful");
+      })
+      .catch((error) => {
+        if (error.message) {
+          toast.error("Something wrong");
+        }
+      });
+  };
+
   const routes = [
     { id: 1, path: "/", name: "Home" },
-    { id: 2, path: "/login", name: "Login" },
-    { id: 3, path: "/register", name: "Register" },
+    { id: 2, path: "/register", name: "Register" },
   ];
+
+  // Conditional rendering of login/logout
+  if (user) {
+    routes.push({ id: 4, path: "#", name: "Logout", onClick: handleSignOut });
+  } else {
+    routes.push({ id: 3, path: "/login", name: "Login" });
+  }
 
   return (
     <div
@@ -50,8 +72,11 @@ const Navbar = () => {
                   <NavLink
                     to={route.path}
                     className={({ isActive }) =>
-                      isActive ? "bg-primary text-white px-3 py-1 rounded" : ""
+                      isActive && route.name !== "Logout"
+                        ? "bg-primary text-white px-3 py-1 rounded"
+                        : ""
                     }
+                    onClick={route.onClick ? route.onClick : null}
                   >
                     {route.name}
                   </NavLink>
