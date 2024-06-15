@@ -1,12 +1,13 @@
-import { Link } from "react-router-dom";
 import registerImg from "./../../assets/register-bg.jpg";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
-import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
+import toast from "react-hot-toast";
 
 const Register = () => {
+  const [registerError, setRegisterError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const { createUser, updatedUserProfile } = useContext(AuthContext);
 
@@ -17,6 +18,18 @@ const Register = () => {
     const photo = form.get("photo");
     const email = form.get("email");
     const password = form.get("password");
+
+    // verify some authentication
+    if (password.length < 6) {
+      return setRegisterError("Minimum 6 characters for password");
+    } else if (!/[A-Z]/.test(password)) {
+      return setRegisterError("Include at least one uppercase character");
+    } else if (!/[a-z]/.test(password)) {
+      return setRegisterError("Include at least one lowercase character");
+    }
+
+    //reset error
+    setRegisterError("");
 
     //create user
     createUser(email, password)
@@ -36,7 +49,9 @@ const Register = () => {
       })
       .catch((error) => {
         const errMessage = error.message;
-        if (errMessage) {
+        if (errMessage === "Firebase: Error (auth/email-already-in-use).") {
+          setRegisterError("Already have an account please login");
+        } else {
           toast.error("Something is wrong try later");
         }
       });
@@ -61,6 +76,7 @@ const Register = () => {
               <div>
                 <label className="mb-1 text-sm">Name</label> <br />
                 <input
+                  required
                   type="text"
                   name="name"
                   placeholder="Name"
@@ -70,6 +86,7 @@ const Register = () => {
               <div className="my-2">
                 <label className="mb-1 text-sm">Photo</label> <br />
                 <input
+                  required
                   type="text"
                   name="photo"
                   placeholder="Photo URL"
@@ -79,6 +96,7 @@ const Register = () => {
               <div>
                 <label className="mb-1 text-sm">Email</label> <br />
                 <input
+                  required
                   type="email"
                   name="email"
                   placeholder="Email"
@@ -88,6 +106,7 @@ const Register = () => {
               <div className="mt-2 relative md:inline-block min-w-0 md:w-2/3">
                 <label className="mb-1 text-sm">Password</label> <br />
                 <input
+                  required
                   type={showPassword ? "text" : "password"}
                   name="password"
                   placeholder="Password"
@@ -108,6 +127,9 @@ const Register = () => {
                 />
               </div>
             </form>
+            {registerError && (
+              <p className="text-red-600 text-sm mt-1">{registerError}</p>
+            )}
             <p className="mt-10">
               Already a member ?{" "}
               <Link to="/login" className="text-blue-600 font-semibold">

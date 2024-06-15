@@ -51,6 +51,7 @@ const Login = () => {
               <div>
                 <label className="mb-1 text-sm">Email</label> <br />
                 <input
+                  required
                   type="email"
                   name="email"
                   placeholder="Email"
@@ -60,6 +61,7 @@ const Login = () => {
               <div className="mt-2 relative md:inline-block min-w-0 md:w-2/3">
                 <label className="mb-1 text-sm">Password</label> <br />
                 <input
+                  required
                   type={showPassword ? "text" : "password"}
                   name="password"
                   placeholder="Password"
