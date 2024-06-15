@@ -8,7 +8,7 @@ import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updatedUserProfile } = useContext(AuthContext);
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -21,10 +21,18 @@ const Register = () => {
     //create user
     createUser(email, password)
       .then((result) => {
-        const loggedUser = result.user;
-        if (loggedUser) {
-          toast.success("Successfully Create Account");
-        }
+        // update profile
+        updatedUserProfile(name, photo)
+          .then(() => {
+            //<-!---- successful message
+            const loggedUser = result.user;
+            if (loggedUser) {
+              toast.success("Successfully Create Account");
+            }
+          })
+          .catch((error) => {
+            console.log(error.message);
+          });
       })
       .catch((error) => {
         const errMessage = error.message;
