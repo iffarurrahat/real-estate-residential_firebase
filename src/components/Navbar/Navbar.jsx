@@ -13,7 +13,7 @@ const Navbar = () => {
   const [navbarBackgroundColor, setNavbarBackgroundColor] = useState("");
   const location = useLocation();
   useEffect(() => {
-    // Update background color based on the current route ---
+    // Update background color based on the current route
     if (location.pathname === "/") {
       setNavbarBackgroundColor("md:text-white");
     } else {
