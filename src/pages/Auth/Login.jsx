@@ -7,6 +7,7 @@ import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import useAuth from "../../hooks/useAuth";
+import PasswordResetModal from "../../components/PasswordResetModal/PasswordResetModal";
 
 const Login = () => {
   const { signIn, loginWithGoogle } = useAuth();
@@ -49,6 +50,9 @@ const Login = () => {
         const loggedUser = result.user;
         if (loggedUser) {
           toast.success("Login Successfully");
+
+          // navigate user
+          navigate(location?.state || "/");
         }
       })
       .catch((error) => {
@@ -102,9 +106,8 @@ const Login = () => {
                 >
                   {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
                 </span>
-                <p className="text-xs mt-2 text-[#696969]">
-                  <a href="#">Forgot password?</a>
-                </p>
+                {/* forget password */}
+                <PasswordResetModal />
               </div>
               <div className="mt-5 md:w-2/3">
                 <input

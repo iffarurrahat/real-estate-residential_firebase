@@ -15,11 +15,13 @@ const Drawer = ({ isOpen, onClose, user, handleSignOut }) => {
       </div>
       <div className="p-4">
         <img
-          src={user?.photoURL}
+          src={user?.photoURL || "https://i.ibb.co/FHzbGp2/default-profile.png"}
           className="border-2 border-primary w-20 h-20 rounded-full mx-auto"
           alt="User Avatar"
         />
-        <h3 className="text-center mt-2 text-black">{user?.displayName}</h3>
+        <h3 className="text-center mt-2 text-black">
+          {user?.displayName || "User name not found"}
+        </h3>
         <p className="text-center text-sm text-black">{user?.email}</p>
         <button
           onClick={handleSignOut}

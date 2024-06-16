@@ -1,7 +1,7 @@
 import registerImg from "./../../assets/register-bg.jpg";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import toast from "react-hot-toast";
 import useAuth from "../../hooks/useAuth";
@@ -10,6 +10,10 @@ const Register = () => {
   const [registerError, setRegisterError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const { createUser, updatedUserProfile } = useAuth();
+
+  // when user login navigate the path
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -41,6 +45,9 @@ const Register = () => {
             const loggedUser = result.user;
             if (loggedUser) {
               toast.success("Successfully Create Account");
+
+              // navigate user
+              navigate(location?.state || "/");
             }
           })
           .catch((error) => {
