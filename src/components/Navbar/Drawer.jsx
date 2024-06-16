@@ -24,7 +24,7 @@ const Drawer = ({ isOpen, onClose, user, handleSignOut }) => {
             alt="User Avatar"
           />
           {user?.emailVerified === true && (
-            <MdVerified className="text-green-600  text-xl absolute bottom-3 left-36" />
+            <MdVerified className="text-green-600  text-xl absolute bottom-3 left-[140px]" />
           )}
         </div>
         <h3 className="text-center mt-2 text-black">

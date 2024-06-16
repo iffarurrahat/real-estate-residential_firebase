@@ -120,7 +120,7 @@ const Login = () => {
             {loginError && (
               <p className="text-red-600 mt-2 text-sm">
                 {loginError === "Firebase: Error (auth/invalid-credential)."
-                  ? "Check email and password "
+                  ? "Email or password might be wrong"
                   : loginError}
               </p>
             )}
