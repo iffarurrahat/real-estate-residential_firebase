@@ -65,7 +65,7 @@ const Navbar = () => {
               {open ? <RiCloseLine /> : <RiMenu2Line />}
             </div>
             <ul
-              className={`md:flex items-center gap-14 absolute md:static duration-1000 mr-4 md:mr-0 right-0 px-8 md:px-0 py-4 rounded-lg ${
+              className={`md:flex items-center gap-14 absolute md:static duration-1000 mr-4 md:mr-0 right-0 px-8 md:px-0 rounded-lg ${
                 open
                   ? "top-20 shadow-lg md:shadow-transparent bg-white md:bg-transparent space-y-3 md:space-y-0"
                   : "-top-60"
