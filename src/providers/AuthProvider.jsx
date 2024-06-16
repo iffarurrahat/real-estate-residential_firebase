@@ -3,6 +3,7 @@ import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
+  sendEmailVerification,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
@@ -59,6 +60,12 @@ const AuthProvider = ({ children }) => {
     return sendPasswordResetEmail(auth, email);
   };
 
+  // verification email
+  const verificationEmail = (loggedUser) => {
+    setLoading(true);
+    return sendEmailVerification(loggedUser);
+  };
+
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       console.log("current user obsercing:", currentUser);
@@ -79,6 +86,7 @@ const AuthProvider = ({ children }) => {
     loginWithGoogle,
     logOut,
     resetPassword,
+    verificationEmail,
     loading,
   };
   return (

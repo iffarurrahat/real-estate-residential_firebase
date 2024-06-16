@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { MdVerified } from "react-icons/md";
 
 const Drawer = ({ isOpen, onClose, user, handleSignOut }) => {
   return (
@@ -14,11 +15,18 @@ const Drawer = ({ isOpen, onClose, user, handleSignOut }) => {
         </button>
       </div>
       <div className="p-4">
-        <img
-          src={user?.photoURL || "https://i.ibb.co/FHzbGp2/default-profile.png"}
-          className="border-2 border-primary w-20 h-20 rounded-full mx-auto"
-          alt="User Avatar"
-        />
+        <div className="relative">
+          <img
+            src={
+              user?.photoURL || "https://i.ibb.co/FHzbGp2/default-profile.png"
+            }
+            className="border-2 border-primary w-20 h-20 rounded-full mx-auto"
+            alt="User Avatar"
+          />
+          {user?.emailVerified === true && (
+            <MdVerified className="text-green-600  text-xl absolute bottom-3 left-36" />
+          )}
+        </div>
         <h3 className="text-center mt-2 text-black">
           {user?.displayName || "User name not found"}
         </h3>

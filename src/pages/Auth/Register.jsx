@@ -9,7 +9,7 @@ import useAuth from "../../hooks/useAuth";
 const Register = () => {
   const [registerError, setRegisterError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const { createUser, updatedUserProfile } = useAuth();
+  const { createUser, updatedUserProfile, verificationEmail } = useAuth();
 
   // when user login navigate the path
   const navigate = useNavigate();
@@ -49,6 +49,11 @@ const Register = () => {
               // navigate user
               navigate(location?.state || "/");
             }
+
+            // verify email
+            verificationEmail(loggedUser).then(() => {
+              toast.success("Please check your email & verify account");
+            });
           })
           .catch((error) => {
             console.log(error.message);
