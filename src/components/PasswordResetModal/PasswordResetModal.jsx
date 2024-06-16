@@ -22,10 +22,12 @@ const PasswordResetModal = () => {
     setIsOpen(false);
   }
 
+  // forget or reset password
   const { resetPassword } = useAuth();
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(null);
   const handleSubmit = (e) => {
     e.preventDefault();
+
     resetPassword(email)
       .then(() => {
         toast.success("Go to email and reset Password");

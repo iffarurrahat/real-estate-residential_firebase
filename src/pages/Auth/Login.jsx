@@ -48,11 +48,13 @@ const Login = () => {
     loginWithGoogle()
       .then((result) => {
         const loggedUser = result.user;
-        if (loggedUser) {
+        if (loggedUser.emailVerified) {
           toast.success("Login Successfully");
 
           // navigate user
           navigate(location?.state || "/");
+        } else {
+          toast.loading("Please verify your email address");
         }
       })
       .catch((error) => {
