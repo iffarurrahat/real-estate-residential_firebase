@@ -5,7 +5,6 @@ import {
   HiOutlineArrowNarrowRight,
 } from "react-icons/hi";
 import "./Slider.css";
-import { useEffect } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
@@ -14,17 +13,14 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 
-import AOS from "aos";
-import "aos/dist/aos.css";
-
 const Slider = ({ slides }) => {
-  useEffect(() => {
-    // Initializing AOS
-    AOS.init({
-      duration: 1000, // Duration of animation in milliseconds
-      once: true, // Whether animation should happen only once or every time you scroll up/down
-    });
-  }, []);
+  // useEffect(() => {
+  //   // Initializing AOS
+  //   AOS.init({
+  //     duration: 1000, // Duration of animation in milliseconds
+  //     once: true, // Whether animation should happen only once or every time you scroll up/down
+  //   });
+  // }, []);
 
   return (
     <div className="font-roboto">
@@ -49,15 +45,15 @@ const Slider = ({ slides }) => {
               {/* Overlay div with pointer-events-none */}
               <div className="absolute inset-0 bg-black opacity-70 pointer-events-none"></div>
               {/* Text container with relative positioning and selectable text */}
-              <div className="relative z-10 p-4  text-white">
+              <div
+                className="relative z-10 p-4  text-white"
+                data-aos="fade-right"
+              >
                 <Container>
                   <p className="text-sm mb-1 md:mb-4 tracking-[8px] font-medium text-primary">
                     {slide.shortTitle}
                   </p>
-                  <h2
-                    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-5"
-                    data-aos="fade-right"
-                  >
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-5">
                     {slide.title}
                   </h2>
                   <p className="md:w-1/2 lg:w-2/3 leading-6 md:leading-8">
