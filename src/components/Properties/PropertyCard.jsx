@@ -45,7 +45,7 @@ const PropertyCard = ({ property }) => {
           <TbStatusChange className="text-[#abb4c0] text-xl" /> {status}
         </p>
       </div>
-      <p className="flex items-center gap-2 px-5 mt-3 mb-5">
+      <p className="flex-wrap md:flex items-center gap-2 px-5 mt-3 mb-5">
         <CiLocationOn className="text-[#abb4c0] text-xl" />
         {location}
       </p>

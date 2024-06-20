@@ -1,6 +1,6 @@
 [
   {
-    "id": "1",
+    "id": "7ST-EA-AP-S-001",
     "image": "https://i.ibb.co/JjnPqL1/luxury-penthouse-in-downtown.jpg",
     "estate_title": "Luxury Penthouse in Downtown",
     "segment_name": "High-end",
@@ -9,6 +9,7 @@
     "status": "Sale",
     "area": "4000 sq ft",
     "location": "Downtown, Cityville",
+    "view": "Park Views",
     "facilities": [
       "living room",
       "swimming pool",
@@ -19,7 +20,7 @@
     ]
   },
   {
-    "id": "2",
+    "id": "7ST-EA-AP-T-002",
     "image": "https://i.ibb.co/JjnPqL1/luxury-penthouse-in-downtown.jpg",
     "estate_title": "Cozy Suburban Home",
     "segment_name": "Mid-range",
@@ -28,10 +29,11 @@
     "status": "Sale",
     "area": "2500 sq ft",
     "location": "Greenwood, Suburbia",
+    "view": "City Skyline Views",
     "facilities": ["living room", "garden", "Kitchen", "garage", "deck"]
   },
   {
-    "id": "3",
+    "id": "7ST-EA-AP-R-003",
     "image": "https://i.ibb.co/JjnPqL1/luxury-penthouse-in-downtown.jpg",
     "estate_title": "Modern Apartment in the City",
     "segment_name": "Mid-range",
@@ -40,6 +42,7 @@
     "status": "Sale",
     "area": "1200 sq ft",
     "location": "City Center, Metropolis",
+    "view": "Sparkling Water Views",
     "facilities": [
       "living room",
       "swimming pool",
@@ -49,7 +52,7 @@
     ]
   },
   {
-    "id": "4",
+    "id": "7ST-EA-AP-K-004",
     "image": "https://i.ibb.co/JjnPqL1/luxury-penthouse-in-downtown.jpg",
     "estate_title": "Beachfront Villa",
     "segment_name": "Luxury",
@@ -58,6 +61,7 @@
     "status": "Sale",
     "area": "5000 sq ft",
     "location": "Palm Beach, Coastline",
+    "view": "Tranquil Garden Views",
     "facilities": [
       "living room",
       "swimming pool",
@@ -68,7 +72,7 @@
     ]
   },
   {
-    "id": "5",
+    "id": "7ST-EA-AP-G-005",
     "image": "https://i.ibb.co/JjnPqL1/luxury-penthouse-in-downtown.jpg",
     "estate_title": "Spacious Family House",
     "segment_name": "Mid-range",
@@ -77,10 +81,11 @@
     "status": "Sale",
     "area": "3000 sq ft",
     "location": "Sunnyvale, Suburbia",
+    "view": "Rolling Hillside Views",
     "facilities": ["living room", "garden", "Kitchen", "garage", "patio"]
   },
   {
-    "id": "6",
+    "id": "7ST-EA-AP-O-006",
     "image": "https://i.ibb.co/JjnPqL1/luxury-penthouse-in-downtown.jpg",
     "estate_title": "Charming Country Cottage",
     "segment_name": "Affordable",
@@ -89,10 +94,11 @@
     "status": "Sale",
     "area": "1500 sq ft",
     "location": "Countryside, Ruralville",
+    "view": "Sunset Terrace Views",
     "facilities": ["living room", "garden", "Kitchen", "fireplace", "patio"]
   },
   {
-    "id": "7",
+    "id": "7ST-EA-AP-P-007",
     "image": "https://i.ibb.co/JjnPqL1/luxury-penthouse-in-downtown.jpg",
     "estate_title": "Urban Loft Apartment",
     "segment_name": "High-end",
@@ -101,6 +107,7 @@
     "status": "Sale",
     "area": "1100 sq ft",
     "location": "Downtown, Metropolis",
+    "view": "Private Courtyard Views",
     "facilities": [
       "living room",
       "Kitchen",
@@ -110,7 +117,7 @@
     ]
   },
   {
-    "id": "8",
+    "id": "7ST-EA-AP-U-008",
     "image": "https://i.ibb.co/JjnPqL1/luxury-penthouse-in-downtown.jpg",
     "estate_title": "Elegant Townhouse",
     "segment_name": "Mid-range",
@@ -119,10 +126,11 @@
     "status": "Sale",
     "area": "2000 sq ft",
     "location": "Riverside, Townsville",
+    "view": "Woodland Sanctuary Views",
     "facilities": ["living room", "garden", "Kitchen", "patio"]
   },
   {
-    "id": "9",
+    "id": "7ST-EA-AP-D-009",
     "image": "https://i.ibb.co/JjnPqL1/luxury-penthouse-in-downtown.jpg",
     "estate_title": "Modern Studio Apartment",
     "segment_name": "Affordable",
@@ -131,6 +139,7 @@
     "status": "Sale",
     "area": "600 sq ft",
     "location": "City Center, Metropolis",
+    "view": "Vineyard Vista Views",
     "facilities": [
       "living room",
       "Kitchen",
