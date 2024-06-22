@@ -24,7 +24,6 @@ const PropertyDetails = () => {
     facilities,
     description,
   } = property || {};
-  console.log(property);
 
   return (
     <div className="mt-20 ">
