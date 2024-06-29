@@ -79,7 +79,7 @@ const PropertyDetails = () => {
 
             <strong>Facilities:</strong>
             <ul>
-              {facilities.map((facility, idx) => (
+              {facilities?.map((facility, idx) => (
                 <li key={idx} className="capitalize flex items-center gap-1">
                   <CiSquareMinus /> {facility}
                 </li>
